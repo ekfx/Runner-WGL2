@@ -169,6 +169,7 @@ export function Render(gl, delta) {
     objIndex++;
     if (objIndex > 4) {
       // objectColor = vec3.fromValues(m.model[12] + 1.0, m.model[13] + 1.0, m.model[13] + 1.0);
+      const hue = (objIndex * 0.618) % 1.0;
       objectColor = vec3.fromValues(
         0.5 + 0.5 * Math.sin(hue * 6.28),
         0.5 + 0.5 * Math.sin(hue * 6.28 + 2.09),
