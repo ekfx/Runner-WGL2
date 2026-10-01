@@ -62,7 +62,7 @@ export function Initialize(gl) {
   // Shaders
   ////////////////////////////////////////////////////////////
 
-  MeshShader = new Shader(gl, "../shaders/vertexShader.glsl", "../shaders/fragmentShader.glsl");
+  MeshShader = new Shader(gl, "shaders/vertexShader.glsl", "shaders/fragmentShader.glsl");
 }
 
 ////////////////////////////////////////////////////////////
