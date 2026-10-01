@@ -1,0 +1,57 @@
+.title {
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+.subtitle {
+    font-size: 30px;
+    font-weight: 1000;
+    text-align: left;
+}
+
+.subsubtitle {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.text {
+    font-size: 24px;
+    text-align: justify;
+    font-weight: 300;
+    overflow-wrap: break-word;
+}
+
+.text-p {
+    font-size: 24px;
+    text-align: justify;
+    font-weight: 300;
+    text-indent: 5% each-line;
+    overflow-wrap: break-word;
+}
+
+.text-start {
+    font-size: 24px;
+    text-align: justify;
+    font-weight: 400;
+    overflow-wrap: break-word;
+}
+
+.language-cpp {
+    font-size: 24px;
+    text-align: justify;
+    font-weight: 400;
+    overflow-wrap: break-word;
+    text-align: left;
+}
+
+a {
+    color: #339117;
+    transition: all 0.25s ease-out;
+}
+
+a:hover {
+    transition: all 0.15s ease-in;
+    text-shadow: #ecffe6 0px 0px 15px;
+    color: #dfffd5;
+}

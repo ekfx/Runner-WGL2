@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; 
+}
+
+body {
+    height: 100%;
+    width: 100%;
+
+    background-color: black;
+
+    display:flex;
+    flex-direction:column;
+    row-gap: 50px;
+    justify-content: center;
+    align-items: center;
+
+    overflow-x:hidden;
+
+    font-family:"Encode Sans Expanded", sans-serif;
+    font-size: 26px;
+    text-align: center;
+    color: white;
+    
+    padding-left: 2.5%; 
+    padding-right: 2.5%; 
+    padding-top: 1.5%; 
+    padding-bottom: 1.5%; 
+}
+

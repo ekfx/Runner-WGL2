@@ -1,0 +1,40 @@
+.img-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-raw {
+  max-width: 100%;
+}
+
+.img-standard {
+  max-width: 90%;
+  border-radius: 25px;
+}
+
+.img-small {
+  max-width: 50%;
+  border-radius: 15px;
+}
+
+.img-smaller {
+  max-width: 20%;
+  border-radius: 15px;
+}
+
+.img-smallest {
+  max-width: 5%;
+  border-radius: 15px;
+}
+
+.img-big {
+  max-width: 150%;
+  border-radius: 45px;
+}
+
+#gl {
+  border: 3px solid gray;
+  border-radius: 25px;
+  box-shadow: #222222 0px 0px 100px;
+}

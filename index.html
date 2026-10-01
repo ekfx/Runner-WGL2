@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <head>
+
+    <script src="js/script.js" defer></script>
+    <script src="js/background.js" defer></script>
+
+    <!-- Precisa ser compilado? https://github.com/highlightjs/highlight.js -->
+    <link rel="stylesheet" href="import/highlight.js-11.12.0/src/styles/monokai-sublime.css">
+    <script src="import/highlight.js-11.12.0/src/highlight.min.js"></script>
+    <script src="import/highlight.js-11.12.0/src/languages/go.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- Importados -->
+    <link rel="stylesheet" href="css/global_style.css">
+    <link rel="stylesheet" href="css/text_style.css">
+    <link rel="stylesheet" href="css/div_style.css">
+    <link rel="stylesheet" href="css/media_style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++</title>
+
+  </head>
+
+<body>
+
+  <canvas id="c"></canvas>
+
+  <div class="main">
+    <div class="title-div">
+      <div class="img-box">
+        <img class="img-smaller"
+          src="https://upload.wikimedia.org/wikipedia/commons/3/32/C%2B%2B_logo.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20210422185554">
+      </div>
+
+      <span class="title">C++: Introdução à linguagem.</span>
+
+      <div class="null-space-big">
+        NULL NULL NULL NULL
+      </div>
+    </div>
+
+    <pre><code class="language-cpp">#include &lt;iostream&gt;
+        #include &lt;random&gt;
+
+        int main() {
+        std::random_device rd{};
+        std::mt19937 mt{rd()};
+        std::uniform_real_distribution&lt;float&gt; randomn;
+        std::cout << "Hello, World!" << std::endl; return 0; }</code>
+    </pre>
+
+    <div class="text-div">
+      <span class="text-start">Acesse alguns índices por aqui:</span>
+    </div>
+
+    <div class="box-warning">
+
+      <div class="subtitle-div">Linguagem</div>
+      <div class="goto-box">
+        <a href="#what" class="goto-href">
+          <button class="goto-button" onclick="show('what')">O que é o C++? Qual sua história?</button>
+        </a>
+        <br>
+
+        <a href="#relevance" class="goto-href">
+          <button class="goto-button" onclick="show('relevance')">Performance e Relevância</button>
+        </a>
+        <br>
+
+        <a href="#proandcon" class="goto-href">
+          <button class="goto-button" onclick="show('proandcon')">Prós e contras</button>
+        </a>
+      </div>
+
+      <br><br>
+
+      <div class="subtitle-div">Informações internas</div>
+      <div class="goto-box">
+        <a href="#ISO" class="goto-href">
+          <button class="goto-button" onclick="show('ISO')">ISO C++</button>
+        </a>
+        <br>
+
+        <a href="#reference" class="goto-href">
+          <button class="goto-button" onclick="show('reference')">Referências C++</button>
+        </a>
+        <br>
+
+        <a href="#learn" class="goto-href">
+          <button class="goto-button" onclick="show('learn')">Aprendizado</button>
+        </a>
+        <br>
+
+        <a href="#compiler" class="goto-href">
+          <button class="goto-button" onclick="show('compiler')">Compiladores e Linguagem</button>
+        </a>
+        <br>
+
+        <a href="#library" class="goto-href">
+          <button class="goto-button" onclick="show('library')">Bibliotecas</button>
+        </a>
+        <br>
+
+        <a href="#concepts" class="goto-href">
+          <button class="goto-button" onclick="show('concepts')">Conceitos</button>
+        </a>
+      </div>
+
+      <br><br>
+
+      <div class="subtitle-div">O Site</div>
+      <div class="goto-box">
+        <a href="#source" class="goto-href">
+          <button class="goto-button" onclick="show('source')">Referências</button>
+        </a>
+        <br>
+
+        <a href="./game.html" class="goto-href">
+          <button class="goto-button" onclick="show('what')">Tente um Jogo.</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="main" hidden>
+    <section id="what" class="box" hidden>
+      <div class="subtitle-div">
+        <span class="subtitle">O que é o C++</span>
+      </div>
+      <div class="subsubtitle-div">
+        <span class="subsubtitle">Antes de C++, havia C</span>
+      </div>
+
+      <p class="text-p">
+        A linguagem C foi desenvolvida em 1972 por Dennis Ritchie nos laboratórios da Bell Telephone, principalmente
+        como uma linguagem de programação de sistemas (uma linguagem para escrever sistemas operacionais). Os principais
+        objetivos de Ritchie eram produzir uma linguagem minimalista que fosse fácil de compilar, permitisse acesso
+        eficiente à memória, produzisse código eficiente e fosse independente (não dependente de outros programas). Para
+        uma linguagem de alto nível, C foi projetado para dar ao programador muito controle, ao mesmo tempo em que
+        permite que os desenvolvedores escrevam um programa que pode ser executado em diferentes plataformas.
+        <br><br>
+        C acabou sendo tão eficiente e flexível que, em 1973, Ritchie e Ken Thompson reescreveram a maior parte do
+        sistema operacional Unix usando C. Muitos sistemas operacionais anteriores foram escritos em montagem. Ao
+        contrário do assembly, que produz programas que só podem ser executados em CPUs específicas, o C tem excelente
+        portabilidade, permitindo que o Unix seja facilmente recompilado em muitos tipos diferentes de computadores e
+        acelerando sua adoção. C e Unix tiveram suas fortunas unidas, e a popularidade de C estava em parte ligada ao
+        sucesso do Unix como sistema operacional.
+        <br><br>
+        Em 1978, Brian Kernighan e Dennis Ritchie publicaram um livro chamado “The C Programming Language”. Este livro,
+        comumente conhecido como K&R (em homenagem aos sobrenomes dos autores’), forneceu uma especificação informal
+        para a linguagem e se tornou um padrão de fato. Quando a portabilidade máxima era necessária, os programadores
+        seguiam as recomendações do K&R, porque a maioria dos compiladores na época eram implementados de acordo com os
+        padrões do K&R.
+        <br><br>
+        Em 1983, o American National Standards Institute (ANSI) formou um comitê para estabelecer um padrão formal para
+        C. Em 1989 (os comitês demoram uma eternidade para fazer qualquer coisa), eles concluíram e lançaram o padrão
+        C89, mais comumente conhecido como ANSI C. Em 1990, a Organização Internacional de Normalização (ISO) adoptou o
+        ANSI C (com algumas pequenas modificações). Esta versão do C ficou conhecida como C90. Os compiladores
+        eventualmente se tornaram compatíveis com ANSI C/C90, e os programas que desejavam portabilidade máxima foram
+        codificados de acordo com esse padrão.
+        <br><br>
+        Em 1999, o comitê ISO lançou uma nova versão do C informalmente chamada de C99. O C99 adotou muitos recursos que
+        já haviam chegado aos compiladores como extensões ou foram implementados em C++.
+      </p>
+      <br>
+      <br>
+
+      <div class="line"></div>
+
+      <div class="subsubtitle-div">
+        <span class="subsubtitle">C++</span>
+      </div>
+
+      <p class="text-p">
+        C++ (pronuncia-se “cê mais mais”) foi desenvolvido por Bjarne Stroustrup no Bell Labs como uma extensão do C,
+        começando em 1979. C++ adiciona muitos novos recursos à linguagem C e talvez seja melhor pensado como um
+        superconjunto de C, embora isso não seja estritamente verdade (já que C99 introduziu alguns recursos que não
+        existem em C++). A inovação mais notável do C++’ em relação ao C é que ele suporta programação orientada a
+        objetos. Quanto ao que é um “objeto” e como ele difere dos métodos tradicionais de programação, bem, abordaremos
+        isso em capítulos posteriores.
+        <br><br>
+        C++ foi padronizado em 1998 pelo comitê ISO. Isso significa que o comitê de padrões ISO aprovou um documento
+        (chamado de documento de padrões) que fornece uma descrição formal da linguagem C++. O objetivo da padronização
+        é ajudar a garantir que o código C++ se comporte de forma consistente em diferentes compiladores e plataformas.
+        <br><br>
+        Uma pequena atualização da linguagem foi publicada em 2003 (informalmente chamada de C++03).
+        <br><br>
+        Cinco atualizações principais para a linguagem C++ (informalmente chamadas de C++11, C++14, C++17, C++20 e
+        C++23) foram feitas desde então, cada uma adicionando funcionalidade adicional. O C++11, em particular,
+        adicionou um grande número de novos recursos e é amplamente considerado a nova versão básica da linguagem.
+        Atualizações futuras do idioma são esperadas a cada três anos ou mais.
+        <br><br>
+        Como o nome oficial dos padrões aprovados é complexo (o nome formal do C++20’ é ISO/IEC 14882:2020), os padrões
+        são convencionalmente chamados por nomes informais, que incluem os dois últimos dígitos do ano de publicação (ou
+        publicação esperada). Por exemplo, C++20 refere-se à versão da linguagem publicada em 2020.
+      </p>
+      <br>
+      <br>
+
+      <div class="line"></div>
+
+      <div class="subsubtitle-div">
+        <span class="subsubtitle">Filosofia de C e C++:</span>
+      </div>
+
+      <p class="text-p">
+        A filosofia de design subjacente de C e C++ pode ser resumida como “confie no programador” — o que é maravilhoso
+        e perigoso. C++ foi projetado para permitir ao programador um alto grau de liberdade para fazer o que quiser. No
+        entanto, isso também significa que a linguagem muitas vezes não o impedirá de fazer coisas que não fazem
+        sentido, porque presumirá que você está fazendo isso por algum motivo que não entende. Existem algumas
+        armadilhas nas quais os novos programadores provavelmente cairão se forem pegos de surpresa. Esta é uma das
+        principais razões pelas quais saber o que você não deve fazer em C/C++ é quase tão importante quanto saber o que
+        você deve fazer.
+      </p>
+    </section>
+
+    <section id="relevance" class="box" hidden>
+      <div class="subtitle-div">
+        <span class="subtitle">Performance e Relevância</span>
+      </div>
+      <div class="subsubtitle-div">
+        <span class="subsubtitle">Performance e uso</span>
+      </div>
+
+      <p class="text-p">
+        C++ se destaca em situações onde é necessário alto desempenho e controle preciso sobre memória e outros
+        recursos. Aqui estão alguns tipos de aplicativos nos quais C++ se destacaria:
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Videogames<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Sistemas em tempo real (por exemplo para transporte, fabricação, etc…)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Aplicações financeiras de alto desempenho (por exemplo negociação de alta
+        frequência)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Aplicações gráficas e simulações<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Produtividade / aplicações de escritório<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Software incorporado<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Processamento de áudio e vídeo<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Inteligência artificial e redes neurais<br>
+        C++ também tem um grande número de bibliotecas de terceiros de alta qualidade disponíveis, o que pode reduzir
+        significativamente os tempos de desenvolvimento.
+      </p>
+      <br>
+      <br>
+
+      <div class="line"></div>
+
+      <div class="subsubtitle-div">
+        <span class="subsubtitle">Relevância</span>
+      </div>
+
+      <p class="text-p">
+        C++ está morrendo? Não. Pesquisas indicam consistentemente que C++ é a segunda ou terceira linguagem compilada
+        mais popular (atrás de Java e, às vezes, C#, e logo à frente de C) e a quinta ou sexta linguagem mais popular no
+        geral (excluindo HTML, SQL e linguagens de script de shell).
+        <br>
+        C++ é uma das linguagens mais populares para aprender a codificar, devido à abundância de recursos didáticos, à
+        grande comunidade e ao número de cursos universitários que a ensinam.
+        <br>
+        Com atualizações de linguagem a cada três anos, um grande número de bibliotecas úteis de terceiros e domínio na
+        sempre popular indústria de videogames, o C++ continua a prosperar.
+      </p>
+
+    </section>
+
+    <section id="proandcon" class="box" hidden>
+      <div class="subtitle-div">
+        <span class="subtitle">Prós e Contras</span>
+      </div>
+      <p class="text-p">
+        C++ oferece inúmeros benefícios que a tornam uma das linguagens de programação mais utilizadas no
+        desenvolvimento de software.
+      </p>
+
+      <div class="subtitle-div">
+        <span class="subtitle">Prós</span>
+      </div>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Alto Desempenho</span> </div>
+      <p class="text">
+        C++ oferece inúmeros benefícios que a tornam uma das linguagens de programação mais utilizadas no
+        desenvolvimento de software.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Execução de programas mais rápida.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Adequado para aplicações com requisitos de desempenho críticos.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Comumente utilizado no desenvolvimento de jogos e em softwares de sistema.<br>
+      </p>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Suporte à Programação Orientada a Objetos</span> </div>
+      <p class="text">
+        C++ suporta Programação Orientada a Objetos (POO), que ajuda a organizar o código em classes e objetos
+        reutilizáveis.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Promove a reutilização de código.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Melhora a facilidade de manutenção.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Suporta encapsulamento, herança e polimorfismo.<br>
+      </p>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Biblioteca de Modelos Padrão (STL) rica</span> </div>
+      <p class="text">
+        A STL fornece implementações prontas para uso de estruturas de dados e algoritmos comumente utilizados.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Reduz o tempo de desenvolvimento.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Melhora a qualidade do código.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Oferece contêineres como vetor, lista, fila, pilha e mapa.<br>
+      </p>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Independência de Plataforma</span> </div>
+      <p class="text">
+        Programas em C++ podem ser executados em múltiplas plataformas com modificações mínimas.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Compatível com Windows, Linux e macOS.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Maior facilidade de portabilidade de aplicativos.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Amplamente suportado por compiladores modernos.<br>
+      </p>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Comunidade e ecossistema de grande porte</span> </div>
+      <p class="text">
+        A linguagem C++ tem sido amplamente utilizada há décadas e conta com amplo suporte da comunidade.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Recursos de aprendizagem abundantes.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Grande coleção de bibliotecas e frameworks.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Forte adoção pela indústria.<br>
+      </p>
+
+      <br>
+      <br>
+
+      <div class="line"></div>
+
+      <div class="subtitle-div">
+        <span class="subtitle">Contras</span>
+      </div>
+      <p class="text">
+        Embora o C++ seja poderoso, ele também apresenta algumas desvantagens que os desenvolvedores devem levar em
+        consideração.
+      </p>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Sintaxe complexa</span> </div>
+      <p class="text">
+        C++ possui um grande número de recursos e construções de linguagem, o que a torna difícil para iniciantes.
+        Curva de aprendizado mais acentuada em comparação com linguagens como Python.
+      </p>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Gerenciamento manual de memória</span> </div>
+      <p class="text">
+        Os desenvolvedores são responsáveis ​​por alocar e desalocar memória em muitas situações.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Se não for tratado adequadamente, pode causar vazamentos de memória.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Aumenta a complexidade do desenvolvimento.<br>
+      </p>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Sem sistema de coleta de lixo integrado.</span> </div>
+      <p class="text">
+        Diferentemente de Java e algumas outras linguagens, C++ não recupera automaticamente a memória não utilizada.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Os desenvolvedores devem gerenciar os recursos com cuidado.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• O manuseio inadequado pode causar travamentos e problemas de memória.<br>
+      </p>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Tempo de desenvolvimento mais longo</span> </div>
+      <p class="text">
+        Devido à sua complexidade e à gestão manual de recursos, o desenvolvimento pode levar mais tempo.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Geralmente é necessário mais código.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• A depuração pode ser desafiadora.<br>
+      </p>
+
+    </section>
+
+    <section id="ISO" class="box" hidden>
+      <div class="img-box">
+        <img class="img-smaller"
+          src="https://upload.wikimedia.org/wikipedia/commons/3/32/C%2B%2B_logo.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20210422185554">
+      </div>
+      <div class="subtitle-div">
+        <span class="subtitle">ISO C++</span>
+      </div>
+      <p class="text-p">
+        A Standard C++ Foundation (Standard CPP Foundation em alguns bancos de dados que não suportam + em nomes) é uma
+        organização sem fins lucrativos 501(c)(6) de Washington, cujo propósito é apoiar a comunidade de desenvolvedores
+        de software C++ e promover a compreensão e o uso do C++ padrão moderno em todos os compiladores e plataformas.
+        <br><br>
+        A Fundação cumpre essa missão operando e financiando o isocpp.org , os repositórios github.com/isocpp e
+        github.com/cplusplus , a conferência CppCon, incluindo o CppCon.org e o canal do CppCon no YouTube , e
+        fornecendo apoio financeiro para as reuniões de padronização do WG21 (comitê de padrões ISO C++) para custos de
+        hospedagem de reuniões, auxílio-viagem para participantes com dificuldades financeiras e bolsas para o
+        desenvolvimento de propostas do WG21 que foram incentivadas, mas cujos autores não podem prosseguir sem algum
+        auxílio financeiro e que os presidentes dos principais subgrupos do WG21 aprovaram o financiamento.
+        <br><br>
+        A Fundação oferece e apoia esses fóruns inclusivos globais para que os tecnólogos de C++ do mundo todo possam
+        colaborar. De acordo com seu status de organização sem fins lucrativos, a Fundação não fará declarações
+        políticas, não apoiará causas políticas nem tomará medidas de natureza política.
+        <br><br>
+        A Fundação é financiada por membros patrocinadores, pela receita da CppCon e, futuramente, por outras fontes.
+        Ela utiliza esses fundos principalmente para auxiliar na organização das reuniões do WG21, financiar a CppCon do
+        ano seguinte, pagar as despesas de desenvolvimento e manutenção do site isocpp.org e, futuramente, de outras
+        maneiras que beneficiem a comunidade C++.
+        <br><br>
+        A Fundação também detém os direitos autorais, ou uma licença, de todo o conteúdo contribuído para este site. A
+        Pearson Education (Addison-Wesley) concordou generosamente em contribuir com extenso material de livros
+        protegido por direitos autorais, que será disponibilizado publicamente neste site e ampliado por meio de
+        contribuições para a wiki. Reciprocamente, queremos poder autorizar editoras como a Pearson a republicar esse
+        conteúdo atualizado da wiki, como, por exemplo, produzir FAQs revisadas de C++ em formato impresso ou
+        eletrônico, o que beneficia a comunidade, disponibilizando o material também em um formato offline conveniente,
+        que ajuda ainda mais a disseminar informações precisas sobre C++. É necessário que exista alguma entidade para
+        deter a licença das contribuições para a wiki e para firmar um contrato de autor com a Pearson, concedendo-lhe a
+        licença para republicar o material.
+      </p>
+
+      <div class="subtitle-div">
+        <span class="subtitle">Diretores e Executivos</span>
+      </div>
+
+      <div class="img-box">
+        <img src="https://isocpp.org/files/img/foundation-directors-21-09.png" class="img-small">
+      </div>
+      <div class="subsubtitle-div"> <span class="subsubtitle">Tempo de desenvolvimento mais longo</span> </div>
+      <p class="text">
+        Os diretores e [funcionários] da Fundação são os seguintes.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Inbal Levi [Secretária]<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Nina Ranns [Vice-Presidente de Marketing e Propriedade Intelectual]<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Bjarne Stroustrup [Tesoureiro]<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Herb Sutter [Presidente do Conselho, Presidente]<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Michael Wong<br>
+      </p>
+
+      <br>
+
+      <div class="line"></div>
+
+      <div class="subtitle-div">
+        <span class="subtitle">Diretrizes principais de C++</span>
+      </div>
+
+      <p class="text">
+        Há diversas coisas importantes para curiosos e interessados na linguagem. Acesse o link abaixo para ver
+        diretrizes, informações, filosofia, referências, classes, sintaxe, regras e muito mais sobre C++.
+      </p>
+
+      <a
+        href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines">https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines</a><br>
+
+    </section>
+
+    <section id="reference" class="box" hidden>
+      <div class="subtitle-div">
+        <span class="subtitle">Referências C++</span>
+      </div>
+      <p class="text-p">
+        C++ oferece inúmeros benefícios que a tornam uma das linguagens de programação mais utilizadas no
+        desenvolvimento de software.
+      </p>
+
+      <div class="subtitle-div">
+        <span class="subtitle">Prós</span>
+      </div>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Alto Desempenho</span> </div>
+      <p class="text">
+        C++ oferece inúmeros benefícios que a tornam uma das linguagens de programação mais utilizadas no
+        desenvolvimento de software.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Execução de programas mais rápida.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Adequado para aplicações com requisitos de desempenho críticos.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Comumente utilizado no desenvolvimento de jogos e em softwares de sistema.<br>
+      </p>
+
+
+    </section>
+
+    <section id="learn" class="box" hidden>
+      <div class="subtitle-div">
+        <span class="subtitle">Aprendizado</span>
+      </div>
+      <p class="text-p">
+        C++ oferece inúmeros benefícios que a tornam uma das linguagens de programação mais utilizadas no
+        desenvolvimento de software.
+      </p>
+
+      <div class="subtitle-div">
+        <span class="subtitle">Prós</span>
+      </div>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Alto Desempenho</span> </div>
+      <p class="text">
+        C++ oferece inúmeros benefícios que a tornam uma das linguagens de programação mais utilizadas no
+        desenvolvimento de software.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Execução de programas mais rápida.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Adequado para aplicações com requisitos de desempenho críticos.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Comumente utilizado no desenvolvimento de jogos e em softwares de sistema.<br>
+      </p>
+
+
+    </section>
+
+    <section id="compiler" class="box" hidden>
+      <div class="subtitle-div">
+        <span class="subtitle">Compiladores e Linguagem</span>
+      </div>
+      <p class="text-p">
+        C++ oferece inúmeros benefícios que a tornam uma das linguagens de programação mais utilizadas no
+        desenvolvimento de software.
+      </p>
+
+      <div class="subtitle-div">
+        <span class="subtitle">Prós</span>
+      </div>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Alto Desempenho</span> </div>
+      <p class="text">
+        C++ oferece inúmeros benefícios que a tornam uma das linguagens de programação mais utilizadas no
+        desenvolvimento de software.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Execução de programas mais rápida.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Adequado para aplicações com requisitos de desempenho críticos.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Comumente utilizado no desenvolvimento de jogos e em softwares de sistema.<br>
+      </p>
+
+
+
+    </section>
+
+    <section id="library" class="box" hidden>
+      <div class="subtitle-div">
+        <span class="subtitle">Bibliotecas</span>
+      </div>
+      <p class="text-p">
+        C++ oferece inúmeros benefícios que a tornam uma das linguagens de programação mais utilizadas no
+        desenvolvimento de software.
+      </p>
+
+      <div class="subtitle-div">
+        <span class="subtitle">Prós</span>
+      </div>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Alto Desempenho</span> </div>
+      <p class="text">
+        C++ oferece inúmeros benefícios que a tornam uma das linguagens de programação mais utilizadas no
+        desenvolvimento de software.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Execução de programas mais rápida.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Adequado para aplicações com requisitos de desempenho críticos.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Comumente utilizado no desenvolvimento de jogos e em softwares de sistema.<br>
+      </p>
+
+
+
+    </section>
+
+    <section id="concepts" class="box" hidden>
+      <div class="subtitle-div">
+        <span class="subtitle">Conceitos</span>
+      </div>
+      <p class="text-p">
+        C++ oferece inúmeros benefícios que a tornam uma das linguagens de programação mais utilizadas no
+        desenvolvimento de software.
+      </p>
+
+      <div class="subtitle-div">
+        <span class="subtitle">Prós</span>
+      </div>
+
+      <div class="subsubtitle-div"> <span class="subsubtitle">Alto Desempenho</span> </div>
+      <p class="text">
+        C++ oferece inúmeros benefícios que a tornam uma das linguagens de programação mais utilizadas no
+        desenvolvimento de software.
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Execução de programas mais rápida.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Adequado para aplicações com requisitos de desempenho críticos.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;• Comumente utilizado no desenvolvimento de jogos e em softwares de sistema.<br>
+      </p>
+
+
+
+    </section>
+
+    <section id="about" class="box" hidden>
+      <div class="subtitle-div">
+        <span class="subtitle">Text</span>
+      </div>
+      <div class="text-div">
+        <a href="https://www.learncpp.com/">https://www.learncpp.com/</a><br>
+        <a
+          href="https://www.geeksforgeeks.org/cpp/advantages-and-disadvantages-of-cpp/">https://www.geeksforgeeks.org/cpp/advantages-and-disadvantages-of-cpp/</a>
+        <a href="https://isocpp.org/">https://isocpp.org/</a><br>
+      </div>
+    </section>
+
+    <section id="source" class="box" hidden>
+      <div class="subtitle-div">
+        <span class="subtitle">Text</span>
+      </div>
+      <div class="text-div">
+        <a href="https://www.learncpp.com/">https://www.learncpp.com/</a><br>
+        <a
+          href="https://www.geeksforgeeks.org/cpp/advantages-and-disadvantages-of-cpp/">https://www.geeksforgeeks.org/cpp/advantages-and-disadvantages-of-cpp/</a>
+        <a href="https://isocpp.org/">https://isocpp.org/</a><br>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
